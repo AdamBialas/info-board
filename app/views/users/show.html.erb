@@ -1,0 +1,32 @@
+<p id="notice">
+    <%= notice %>
+</p>
+
+<div class="card">
+    <div class="card-header text-white">
+        User [<%= @user.email %>]
+    </div>
+    <form>
+        <fieldset disabled>
+            <div class="card-body">
+
+                <div class="mb-3">
+
+                    <div class="field">
+                        <div class="mb-3">
+                            <label for="disabledusername" class="form-label">Name</label>
+                            <input type="text" id="disabledusername" value=<%=@user.name%> class="form-control" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="disableduserlastname" class="form-label">Last name</label>
+                            <input type="text" id="disableduserlastname" value=<%=@user.lastname%> class="form-control">
+                        </div>
+                        <%= image_tag @user.photo,class:"rounded-circle", height: '90', width: '90' %>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div class="actions">
+        <%= link_to 'Edit' , edit_user_path(@user),class: "btn btn-primary" %>
+    </div>

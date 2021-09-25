@@ -1,0 +1,55 @@
+<% unless notice.nil? %>
+<p id="notice">
+  <%= notice %>
+</p>
+<% end %>
+<div class="d-flex justify-content-center mt-1 mb-1 bd-blue-800 "> 
+<%= link_to_prev_page @infos, ' < ', class: 'btn btn-primary' %>
+<%= link_to fa_icon('mdi mdi-account-edit ', text: "new"), new_info_path, class: 'btn btn-primary' %>
+<%= link_to_next_page @infos,' > ', class: 'btn btn-primary' %>
+</div>
+
+  <div class="d-flex justify-content-center bd-blue-100 ">
+    <div class="col-md-8">
+      <div class="feed p-1">
+        <% @infos.each do |info| %>
+          <div class="bg-white border mt-2">
+            <div>
+              <div class="d-flex flex-row justify-content-between align-items-center p-2 bd-blue-400 border-bottom">
+                <div class="d-flex flex-row align-items-center feed-text px-2">
+                  <%= image_tag info.user.photo,height: '40', width: '40' ,class:"rounded-circle" %>                  
+                  <div class="d-flex flex-column flex-wrap ml-2"><span class="font-weight-bold"><%=UserForId(info.user.id) %></span><span
+                      class="text-black-50 time" style="color: #fff; "> <%= link_to time_ago_in_words(info.created_at), info, title:created_at_format(info) %>  </span></div>
+                </div>
+                <div class="dropdown">
+                  <a type="button" href="#"
+                  role="button"
+                  id="dropdownMenu"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i></a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                    <%if info.user == current_user %>                    
+                    <li><a class="dropdown-item" href=<%= edit_info_path(info.id)%>>Edit</a></li>
+                    <% else %>
+                    <li><a class="dropdown-item disabled" href=<%= edit_info_path(info.id)%>>Edit</a></li>
+                    <% end %>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 px-3 text"><span style="white-space: pre-line;">
+                <%=info.contents %>
+              </span></div>
+            <div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i
+                class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>
+          </div>
+
+          <% end %>
+      </div>
+    </div>
+  
+  <br>
+</div>

@@ -1,0 +1,45 @@
+<%= form_with(model: user, multipart: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(user.errors.count, "error" ) %> prohibited this info from being saved:
+      </h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li>
+            <%= error.full_message %>
+          </li>
+          <% end %>
+      </ul>
+    </div>
+    <% end %>
+      <div class="card">
+        <div class="card-header text-white">
+          User [<%= user.email %>]
+        </div>
+        <div class="card-body">
+
+          <div class="mb-3">
+
+            <div class="field">
+
+              <div class="mb-3">
+                <label for="disabledusername" class="form-label">Name</label>
+                <%= form.text_field :name , id:"disabledusername", class: "form-control" , placeholder:"Name" %>
+              </div>
+              <div class="mb-3">
+                <label for="disableduserlastname" class="form-label">Last name</label>
+                <%= form.text_field :lastname , id:"disableduserlastname", class: "form-control" , placeholder:"Last
+                  name" %>
+              </div>
+              <%= form.file_field :photo , accept: "image/png, image/jpeg" %>              
+            </div>
+          </div>
+        </div>
+      </div>
+      </br>
+      <div class="actions">
+        <%= form.submit "Save" , class: "btn btn-primary" %>
+      </div>
+      <% end %>
