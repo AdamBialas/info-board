@@ -12,6 +12,8 @@ import '../../../vendor/assets/javascripts/mdb.min.js'
 import "channels"
 //import '../js/bootstrap_js_files.js'
 import {} from 'jquery-ujs'
+import 'jquery/src/jquery'
+
 
 
 

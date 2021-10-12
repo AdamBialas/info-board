@@ -1,10 +1,17 @@
 class InfosController < ApplicationController
-  before_action :set_info, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action :set_info, only: [:show, :edit, :update, :destroy]
 
   # GET /infos or /infos.json
   def index
     @infos = Info.order("created_at DESC").page params[:page]
+  end
+
+  def search
+    @infos = Info.search(params[:search]).records
+    respond_to do |format|
+      format.html { render :index }
+    end
   end
 
   # GET /infos/1 or /infos/1.json
@@ -18,6 +25,10 @@ class InfosController < ApplicationController
 
   # GET /infos/1/edit
   def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def desk
@@ -46,7 +57,7 @@ class InfosController < ApplicationController
   def update
     respond_to do |format|
       if @info.update(info_params)
-        format.html { redirect_to @info, notice: "Info was successfully updated." }
+        format.html { redirect_to request.referrer, notice: "Info was successfully updated." }
         format.json { render :show, status: :ok, location: @info }
       else
         format.html { render :edit, status: :unprocessable_entity }

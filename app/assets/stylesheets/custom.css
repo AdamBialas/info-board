@@ -26,6 +26,10 @@
     margin-left: 16px;
 }
 
+.rounded {
+  border-radius: 4px!important;
+}
+
 html,
 body {
   height: 100%;

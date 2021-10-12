@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar navbar-expand-md  navbar-dark navbar-expand-md " style="color: #fff; background-color: #073984;">
+<nav id="navbar" class="navbar navbar-expand-md  navbar-dark navbar-expand-md " style="color: rgb(255, 255, 255); background-color: #073984;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Info Board</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -34,10 +34,10 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <%=form_tag(search_info_path, method: :get, class:"d-flex") do %>      
+        <%=text_field_tag :search ,params[:search],class:"form-control me-2" ,placeholder:"Search" %>         
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-      <%end %>
+      <%end%>
+      <%end%>
     </div>
 </nav>

@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Contents:</strong>
-  <%= @info.contents %>
-</p>
-
-<%= link_to 'Edit', edit_info_path(@info) %> |
-<%= link_to 'Back', infos_path %>
+<div class="bg-white mt-2 border border-dark rounded-top rounded-bottom rounded ">
+<div class="p-2 px-3 text"><span style="white-space: pre-line;">
+<%= @info.contents %>
+              </span></div>
+            </div>
+            <div class="actions">
+            <%= link_to 'Edit', edit_info_path(@info), class: "btn btn-primary" %>
+            <%= link_to 'Back', infos_path, class: "btn btn-primary" %>
+          </div>

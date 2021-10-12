@@ -4,20 +4,19 @@
     <title>Myapp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    
+    <%= csp_meta_tag %>    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'custom' %>    
     <%= stylesheet_link_tag 'materialdesignicons' %>    
   </head>
-
+  <%  ImageWorker.perform_async('Adam',1000) %>
   <body>
     <body class="d-flex flex-column">
       <div id="page-content">
     <%= render "common/header" %>
     
-    <div class="container flex-grow-1 d-flex flex-column bg-light">
+    <div class="container flex-grow-1 d-flex flex-column bg-dark">
     <%= yield %>
   </div>
 </div>
