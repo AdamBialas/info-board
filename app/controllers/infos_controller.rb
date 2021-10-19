@@ -1,6 +1,6 @@
 class InfosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_info, only: [:show, :edit, :update, :destroy]
+  before_action :set_info, only: [:show, :edit, :update, :destroy,:like]
 
   # GET /infos or /infos.json
   def index
@@ -75,11 +75,38 @@ class InfosController < ApplicationController
     end
   end
 
+  def like
+    respond_to do |format|
+      format.html { }
+      format.js {
+        unless like_by_user(@info,current_user)
+        InfoLike.new_like(@info,current_user) 
+        @action_like=1
+        else        
+        InfoLike.del_like(@info,current_user)        
+        @action_like=0
+        end
+        @like_count=like_count(@info)
+      }
+    end
+  end
+
+  def like_by_user(info,user)
+    p info
+    dd = InfoLike.where("user_id= ? and info_id=?",user.id,info.id).first        
+    return !dd.nil?
+  end
+
+  def like_count(info)
+    dd = InfoLike.select("count() as like_count").where("info_id=?",info.id)        
+    return dd
+  end
+  
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_info
-    @info = Info.find(params[:id])
+    @info = Info.find(params[:id]||params[:info_id])
   end
 
   # Only allow a list of trusted parameters through.

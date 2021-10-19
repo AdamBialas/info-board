@@ -1,4 +1,6 @@
 class Info < ApplicationRecord
+  has_many :likes, dependent: :delete_all
+  
     include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
 

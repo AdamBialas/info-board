@@ -10,8 +10,8 @@
         <fieldset disabled>
             <div class="card-body">
 
-                <div class="mb-3">
-
+                <div class="mb-3 ustify-content-center">
+                    <%= image_tag @user.photo.variant(resize_to_fill: [90, 90]) ,class:"rounded-circle" %>
                     <div class="field">
                         <div class="mb-3">
                             <label for="disabledusername" class="form-label">Name</label>
@@ -21,7 +21,7 @@
                             <label for="disableduserlastname" class="form-label">Last name</label>
                             <input type="text" id="disableduserlastname" value=<%=@user.lastname%> class="form-control">
                         </div>
-                        <%= image_tag @user.photo,class:"rounded-circle", height: '90', width: '90' %>
+                        
                     </div>
                 </div>
             </div>

@@ -1,0 +1,9 @@
+console.log("js loaded <%=@info.id%>");
+$(document).ready(function(){
+$("#like_<%=@info.id%>").text("<%=@like_count.first.like_count%>");
+<% if @action_like==1%>
+$("#icon_like_<%=@info.id%>" ).removeClass( "fa-thumbs-up" ).addClass( "fa-thumbs-down" );
+<%else%>
+$("#icon_like_<%=@info.id%>" ).removeClass( "fa-thumbs-down" ).addClass( "fa-thumbs-up" );
+<%end%>
+});

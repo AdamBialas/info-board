@@ -66,3 +66,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "font-awesome-rails"
 gem 'sidekiq'
+gem "image_processing"

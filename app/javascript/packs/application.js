@@ -20,4 +20,3 @@ import 'jquery/src/jquery'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
