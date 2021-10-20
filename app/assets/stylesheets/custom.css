@@ -50,6 +50,12 @@ body {
   font-size: 9px !important
 }
 
+#infopanel {
+  border-color: rgba(126, 239, 104, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(4, 29, 110, 0.6);
+  outline: 0 none;
+}
+
 .socials i {
   margin-right: 14px;
   font-size: 17px;

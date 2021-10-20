@@ -91,8 +91,7 @@ class InfosController < ApplicationController
     end
   end
 
-  def like_by_user(info,user)
-    p info
+  def like_by_user(info,user)    
     dd = InfoLike.where("user_id= ? and info_id=?",user.id,info.id).first        
     return !dd.nil?
   end
