@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
-
+3.0.0 rails 6.1.4
 * System dependencies
 
+Containers:
+docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.19
+docker.io/library/redis:latest
 * Configuration
 
 * Database creation
@@ -30,4 +25,3 @@ Things you may want to cover:
 
 Simple rails 6 aplication for serving info news with comments and likes system.
 
->>>>>>> 0266b7bca6525a9429d74ee7c11647df08e96240
