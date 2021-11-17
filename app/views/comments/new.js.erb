@@ -1,0 +1,2 @@
+$("#modal-window").find(".modal-content").html("<%= j(render 'comments/comment/new', info: @info, comment: @comment ) %>");
+$("#modal-window").modal("toggle");

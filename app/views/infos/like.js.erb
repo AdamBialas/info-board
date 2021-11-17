@@ -1,11 +1,11 @@
-console.log("js loaded <%=@info.id%>");
-$(document).ready(function(){
-$("#like_<%=@info.id%>").text("<%=@like_count.first.like_count%>");
+console.log("js loaded <%=@info.id %>");
+$(document).ready(function(){    
+$("#like_<%=@info.id%>").text("<%=@like_count.like_count.to_s%>");
 $("#icon_like_<%=@info.id%>" ).hide();
 <% if @action_like==1%>
-$("#icon_like_<%=@info.id%>" ).removeClass( "fa-thumbs-up" ).addClass( "fa-thumbs-down" );
+$("#icon_like_<%=@info.id%>" ).removeClass( "fas fa-dot-circle" ).addClass( "far fa-arrow-alt-circle-up" );
 <%else%>
-$("#icon_like_<%=@info.id%>" ).removeClass( "fa-thumbs-down" ).addClass( "fa-thumbs-up" );
+$("#icon_like_<%=@info.id%>" ).removeClass( "far fa-arrow-alt-circle-up" ).addClass( "fas fa-dot-circle" );
 <%end%>
 $("#icon_like_<%=@info.id%>" ).show();
 });

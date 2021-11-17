@@ -1,6 +1,7 @@
-class Info < ApplicationRecord
+class Info < ActiveRecord::Base
   has_many :likes, dependent: :delete_all
-  
+  has_many :comments, dependent: :delete_all, as: :commentable
+
     include Elasticsearch::Model
     include Elasticsearch::Model::Callbacks
 
@@ -17,5 +18,17 @@ settings analysis: {
         end
     end
   belongs_to :user, optional: true
-    paginates_per 5
+
+
+def like_by_user(user)    
+  dd = self.likes.where("user_id= ?",user.id).first
+  return dd
+end
+
+def like_count
+  dd = self.likes.select("count() as like_count").first
+  p dd.like_count
+  return dd
+end
+
 end

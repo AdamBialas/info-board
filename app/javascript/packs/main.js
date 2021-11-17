@@ -1,1 +1,2 @@
-console.log("posts.js loaded");
+
+  console.log("posts.js loaded");

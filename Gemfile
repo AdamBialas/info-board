@@ -25,7 +25,6 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'kaminari'
 
 gem 'jquery-rails'
 
@@ -67,3 +66,6 @@ gem 'devise'
 gem "font-awesome-rails"
 gem 'sidekiq'
 gem "image_processing"
+gem 'nprogress-rails'
+gem "pagy"
+gem 'sweetalert2-rails'

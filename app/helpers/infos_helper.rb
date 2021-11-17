@@ -5,12 +5,12 @@ module InfosHelper
     end
     
     def like_by_user(info,user)
-        dd = InfoLike.where("user_id= ? and info_id=?",user.id,info.id).first        
+        dd = info.likes.where("user_id= ?",user.id).first        
         return !dd.nil?
     end
 
     def like_count(info)
-        dd = InfoLike.select("count() as like_count").where("info_id=?",info.id)        
+        dd = info.likes.select("count() as like_count")
         return dd
     end
 

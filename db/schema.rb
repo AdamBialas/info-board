@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_15_194932) do
+ActiveRecord::Schema.define(version: 2021_10_24_212427) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,18 @@ ActiveRecord::Schema.define(version: 2021_10_15_194932) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "info_comments", force: :cascade do |t|
+    t.text "text_"
+    t.string "commentable_type"
+    t.integer "commentable_id"
+    t.integer "User_id", null: false
+    t.integer "parent_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["User_id"], name: "index_info_comments_on_User_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_info_comments_on_commentable"
+  end
+
   create_table "info_likes", force: :cascade do |t|
     t.integer "info_id"
     t.integer "user_id"
@@ -73,4 +85,5 @@ ActiveRecord::Schema.define(version: 2021_10_15_194932) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "info_comments", "Users"
 end

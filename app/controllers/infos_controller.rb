@@ -1,16 +1,28 @@
 class InfosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_info, only: [:show, :edit, :update, :destroy,:like]
+  before_action :set_info, only: [:show, :edit, :update, :destroy ,:like]
 
   # GET /infos or /infos.json
   def index
-    @infos = Info.order("created_at DESC").page params[:page]
+    @pagy, @infos = pagy Info.order("created_at DESC").all
+
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: { entries: render_to_string(partial: "infos", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
+      }
+    end
+
+    
   end
 
   def search
-    @infos = Info.search(params[:search]).records
+    @pagy, @infos = pagy Info.search(params[:search]).records
     respond_to do |format|
       format.html { render :index }
+      format.json {
+        render json: { entries: render_to_string(partial: "infos", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
+      }
     end
   end
 
@@ -32,9 +44,12 @@ class InfosController < ApplicationController
   end
 
   def desk
-    @infos = Info.where("user_id = ?", current_user.id).order("created_at DESC").page params[:page]
+    @pagy, @infos = pagy  Info.where("user_id = ?", current_user.id).order("created_at DESC")
     respond_to do |format|
       format.html { render :index }
+      format.json {
+        render json: { entries: render_to_string(partial: "infos", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
+      }
     end
   end
 
@@ -44,7 +59,8 @@ class InfosController < ApplicationController
 
     respond_to do |format|
       if @info.save
-        format.html { redirect_to infos_path, notice: "Info was successfully created." }
+        format.html { redirect_to infos_path
+           flash[:success] = "Info was successfully created." }
         format.json { render :show, status: :created, location: @info }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -76,29 +92,23 @@ class InfosController < ApplicationController
   end
 
   def like
+    
     respond_to do |format|
-      format.html { }
+      p format
+      format.html {}
       format.js {
-        unless like_by_user(@info,current_user)
-        InfoLike.new_like(@info,current_user) 
+        ul=@info.like_by_user(current_user)
+        if ul.nil?
+        @info.likes.add(current_user)
         @action_like=1
-        else        
-        InfoLike.del_like(@info,current_user)        
+        else
+        ul.destroy
         @action_like=0
         end
-        @like_count=like_count(@info)
+        @like_count=@info.like_count()
+        p @like_count
       }
     end
-  end
-
-  def like_by_user(info,user)    
-    dd = InfoLike.where("user_id= ? and info_id=?",user.id,info.id).first        
-    return !dd.nil?
-  end
-
-  def like_count(info)
-    dd = InfoLike.select("count() as like_count").where("info_id=?",info.id)        
-    return dd
   end
   
   private
