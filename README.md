@@ -3,8 +3,11 @@
 * System dependencies
 
 Containers:
+
 docker.elastic.co/elasticsearch/elasticsearch-oss:6.8.19
+
 docker.io/library/redis:latest
+
 * Configuration
 
 * Database creation
