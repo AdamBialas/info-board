@@ -25,4 +25,9 @@ Things you may want to cover:
 * ...
 =======
 # info-board
+
+![image](https://user-images.githubusercontent.com/1632227/142298233-554757a8-1903-4b70-9049-d5ad1a2a6c2e.png)
+
+Simple rails 6 aplication for serving info news with comments and likes system.
+
 >>>>>>> 0266b7bca6525a9429d74ee7c11647df08e96240
