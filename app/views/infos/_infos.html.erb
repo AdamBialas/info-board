@@ -47,7 +47,7 @@
               <%= link_to "" , info_like_url(info.id), id:"icon_like_#{info.id}", remote: :true, no_turbolink:
                 :true, class: like_by_user(info,current_user) ? "no_deco_link far fa-arrow-alt-circle-up fa-lg"
                 : "no_deco_link fas fa-dot-circle fa-lg" %>
-                <div id="<%=" like_#{info.id}"%>" class="mr-2 ml-2"><%= p like_count(info).first.like_count %>
+                <div id="<%="like_#{info.id}"%>" class="mr-2 ml-2"><%= p like_count(info).first.like_count %>
                 </div>
                 <%= link_to "" , new_info_comment_path(info.id), id:"comment", class:"no_deco_link fa fa-comments-o
                   fa-lg", remote: :true, method: :get %>                  
@@ -65,7 +65,7 @@
                 <span>
                   <%= link_to "#{ccc.User.name} #{ccc.User.lastname}" , user_url(ccc.User) %>
                 </span>
-                <span>
+                <span style="white-space: pre-line;">
                   <%=ccc.text_%>
                 </span>
               </div>
