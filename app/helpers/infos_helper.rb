@@ -3,6 +3,10 @@ module InfosHelper
     def created_at_format(info)
         info.created_at.strftime("%Y-%m-%d %H:%M:%S") unless info.created_at.blank?
     end
+
+    def comented_at_format(comment)
+        comment.created_at.strftime("%Y-%m-%d %H:%M:%S") unless comment.created_at.blank?
+    end
     
     def like_by_user(info,user)
         dd = info.likes.where("user_id= ?",user.id).first        

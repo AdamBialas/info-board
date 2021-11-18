@@ -14,7 +14,7 @@
                     <span class="font-weight-bold">
                       <%=UserForId(info.user.id) %>
                     </span><span class="text-black-50 time" style="color: #fff; ">
-                      <%= link_to time_ago_in_words(info.created_at), info, title:created_at_format(info) %>
+                      <%= link_to time_ago_in_words(info.created_at), edit_info_path(info.id), title:created_at_format(info),class:"no_deco_link",remote: :true, 'data-toggle'=> 'modal' , 'data-target' => '#modal-window' %>
                     </span>
                   </div>
                 </div>
@@ -63,8 +63,11 @@
               <div class="p-2 bd-highlight flex-fill comments-comment-feed rounded">
               <div class="feed-shared-text relative">
                 <span>
-                  <%= link_to "#{ccc.User.name} #{ccc.User.lastname}" , user_url(ccc.User) %>
+                  <%= link_to "#{ccc.User.name} #{ccc.User.lastname}" , user_url(ccc.User), class:"no_deco_link" %>
                 </span>
+                <span class="text-black-50 time" style="color:#fff; ">
+                <%= link_to time_ago_in_words(ccc.created_at), edit_info_comment_path(info.id,ccc.id), title:comented_at_format(ccc), class:"no_deco_link", remote: :true, 'data-toggle'=> 'modal' , 'data-target' => '#modal-window'  %>
+               </span>
                 <span style="white-space: pre-line;">
                   <%=ccc.text_%>
                 </span>
