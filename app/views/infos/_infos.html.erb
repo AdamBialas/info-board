@@ -14,7 +14,7 @@
                     <span class="font-weight-bold">
                       <%=UserForId(info.user.id) %>
                     </span><span class="text-black-50 time" style="color: #fff; ">
-                      <%= link_to time_ago_in_words(info.created_at), edit_info_path(info.id), title:created_at_format(info),class:"no_deco_link",remote: :true, 'data-toggle'=> 'modal' , 'data-target' => '#modal-window' %>
+                      <%= link_to time_ago_in_words(info.created_at), edit_info_path(info.id), title:created_at_format(info),class:"no_deco_link remove_link_colour",remote: :true, 'data-toggle'=> 'modal' , 'data-target' => '#modal-window' %>
                     </span>
                   </div>
                 </div>

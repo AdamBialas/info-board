@@ -775,3 +775,8 @@ p {
 .no_deco_link { 
   text-decoration:none; 
 }
+.remove_link_colour {
+  a, a:hover, a:focus, a:active {
+      color: black;
+  }
+}
