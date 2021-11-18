@@ -22,7 +22,7 @@ docker.io/library/redis:latest
 
 * ...
 =======
-# info-board
+# info-board (work in progress)
 
 ![image](https://user-images.githubusercontent.com/1632227/142298233-554757a8-1903-4b70-9049-d5ad1a2a6c2e.png)
 
