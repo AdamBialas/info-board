@@ -24,8 +24,9 @@ docker.io/library/redis:latest
 =======
 # info-board (work in progress)
 
-![image](https://user-images.githubusercontent.com/1632227/142496816-01e65545-dbc3-4f55-93b0-f9b252fc6935.png)
+
+![image](https://user-images.githubusercontent.com/1632227/142772246-dbd1fbe6-7f9b-4a9e-b391-f61069f0b140.png)
 
 
-Simple rails 6 aplication for serving info news with comments and likes system.
+Simple rails 6 aplication for serving info news with comments and likes system.Just for learn Rails 6 
 
