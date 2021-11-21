@@ -1,10 +1,19 @@
 <%= toastr_flash %>
-  <div class="d-flex justify-content-center mt-1 mb-1 bd-blue-800 ">
-    
-      <%= link_to fa_icon('mdi mdi-account-edit', text: "new" ), new_info_path, class: "btn btn-primary" , :remote=>
-        true , "data-toggle" => "modal", "data-target" => "#modal-window" %>
-    
+<div class="d-flex justify-content-center bg-white">
+  <div class="col-md-8">
+      <div id="infopanel" class="bg-white mt-2 border rounded-top rounded-bottom rounded mb-2 ml-4 mr-4 ">
+      <div class="d-flex flex-row bd-highlight mb-2 ms-4">
+        <div class="p-2 bd-highlight">              
+        <%= image_tag current_user.photo.variant(resize_to_fill: [40, 40]) ,class:"rounded-circle border border-white" %>
+      </div>
+      <div class="p-4 bd-highlight flex-fill bg-white rounded">
+        <%= link_to "New post ...", new_info_path, class: "btn share-box" , :remote=> true , "data-toggle" => "modal", "data-target" => "#modal-window" %>
+       </div>
+       </div>
+      </div>
+    </div>
   </div>
+  
   <div data-controller="infinite-scroll">
     <div data-infinite-scroll-target="entries">
       <%= render "infos" %>

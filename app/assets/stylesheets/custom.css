@@ -780,3 +780,30 @@ p {
       color: black;
   }
 }
+.share-box {
+  background-color: transparent;
+  color: #b8b9bd;;
+  margin: 4px 0;
+  font-size: 1.4rem;
+  flex-grow: 1;  
+  justify-content: center;  
+  line-height: 1;
+  border: 1px solid ;
+  border-radius: 35px!important;
+  padding-left: 16px!important;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  transition-duration: 167ms;
+  align-items: center;
+  border: none;
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: pointer; 
+  font-weight: 600;  
+  display: block;
+  justify-content: center;
+  min-width: 6.4rem;  
+  
+  text-align: center;
+  transition-property: background-color,box-shadow,color;
+  vertical-align: middle;
+}
