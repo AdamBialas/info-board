@@ -3,6 +3,10 @@
     word-wrap: break-word;
 }
 
+.userblock {
+  display: block!important;
+}
+
 .bg-red {
   background-color: #dc3545;
 }
@@ -36,7 +40,7 @@ body {
 }
 
 #page-content {
-  flex: 1 0 auto;
+  flex: 2 0 auto;
 }
 
 /* Other Classes for Page Styling */
@@ -52,10 +56,25 @@ body {
 
 #infopanel {
   border-color: rgba(126, 239, 104, 0.8);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(4, 29, 110, 0.6);
+  
   outline: 0 none;
 }
 
+.sidebar {
+  transition: all 0.3s ease;
+  position: relative;  
+  width: 250px;
+  height: 100%;
+  clear: none;
+  left: 0;
+}
+
+.content {
+  transition: all 0.5s ease;  
+  height: 100%;
+  margin-left: 250px;
+  overflow: hidden;
+}
 .socials i {
   margin-right: 14px;
   font-size: 17px;
