@@ -5,12 +5,10 @@
                 <div class="mb-3 text-center userblock">
                     <%= image_tag current_user.photo.variant(resize_to_fill: [90, 90]) ,class:"rounded-circle" %>
                     <div class="field">
-                        <div class="mb-3">
-                            <label for="disabledusername" class="form-label">Name</label>
+                        <div class="mb-3">                            
                             <input type="text" id="disabledusername" value=<%=current_user.name%> class="form-control" >
                         </div>
-                        <div class="mb-3">
-                            <label for="disableduserlastname" class="form-label">Last name</label>
+                        <div class="mb-3">                            
                             <input type="text" id="disableduserlastname" value=<%=current_user.lastname%> class="form-control">
                         </div>                                  
                     </div>
