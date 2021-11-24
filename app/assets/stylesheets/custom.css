@@ -25,7 +25,7 @@
     justify-content: space-between;
     padding-right: 0;
     padding-left: 0;
-    padding-bottom: 12px;
+    padding-bottom: 6px;
     margin-right: 16px;
     margin-left: 16px;
 }
@@ -46,7 +46,7 @@ body {
 /* Other Classes for Page Styling */
 
 body {
-  background: #007bff;
+  
   background: linear-gradient(to right, #0062E6, #33AEFF);
 }
 
@@ -69,6 +69,14 @@ body {
   left: 0;
 }
 
+.usercard {
+  height: 350px;
+  border: 1px solid #b8b9bd;
+}
+
+.user-photo-back {
+  background: linear-gradient(to top, #ffffff, #6d9dbd);
+}
 .content {
   transition: all 0.5s ease;  
   height: 100%;
