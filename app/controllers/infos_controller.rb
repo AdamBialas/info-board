@@ -120,6 +120,6 @@ class InfosController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def info_params
-    params.require(:info).permit(:contents, :user_id)
+    params.require(:info).permit(:contents,:image_url, :user_id)
   end
 end
