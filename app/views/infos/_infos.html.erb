@@ -40,10 +40,9 @@
                 </div>
               </div>
             </div>
-            <div class="p-1 px-1 text"><span style="white-space: pre-line;">
-                <%=info.contents %>
-              </span></div>
-              <% unless info.image_url.nil? %>
+            <div class="p-1 px-1 text"><span><%=info.contents %></span></div>
+              <% if !info.image_url.to_s.empty? %>
+              <hr>
               <div class="text-center">
                 <%= image_tag info.image_url , class:"mb-2" , style: "max-width: 850px; height: auto;"%>
               </div>

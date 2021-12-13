@@ -52,3 +52,5 @@ function handleConfirm(element) {
 }
 
 Rails.delegate(document, 'a[data-confirm-swal]', 'click', handleConfirm);
+require("trix")
+require("@rails/actiontext")

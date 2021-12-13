@@ -140,6 +140,19 @@ span {
     width: 6rem;
     height: 6rem;
   }
+  .modal-dialog {
+    max-width: 800px; /* New width for default modal */
+    height:600px !important;    
+  }
+  .modal-content {
+ 
+    /* 80% of window height */
+ 
+    height: 60%;
+ 
+   
+ 
+}  
 }
 
 .swatch-blue {
@@ -385,3 +398,4 @@ p {
   transition-property: background-color,box-shadow,color;
   vertical-align: middle;
 }
+

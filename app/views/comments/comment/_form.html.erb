@@ -1,12 +1,14 @@
 <%= form_with(model: comment) do |form| %>
-  <div class="card">
+<div class="modal-content">
+<div class="card">
     <div class="card-header text-white">
       New info
     </div>
     <div class="card-body">
       <div class="mb-3">
-        <div class="field">
-          <%= form.text_area :text_ ,class: "form-control" , rows: 10, placeholder:"Write comment...." %>
+        <div class="field" style="height: 300px;">
+          
+          <%= form.rich_text_area :text_ ,class: "form-control" , placeholder:"Write comment...." %>
         </div>
      
 
@@ -17,4 +19,5 @@
       </div>
     </div>
   </div>
+</div>
   <% end %>
